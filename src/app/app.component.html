@@ -1,0 +1,40 @@
+<div class="row" *ngIf="!_userService._token">
+  <div>
+    <label>Usuario:</label><br/>
+    <label>
+      <input type="text" name="login-username" [(ngModel)]="user.username">
+    </label>
+    <span *ngFor="let error of _userService.errors.username"><br/>
+      {{ error }}</span></div>
+  <div>
+    <label>Contrasena:</label><br/>
+    <label>
+      <input type="password" name="login-password" [(ngModel)]="user.password">
+    </label>
+    <span *ngFor="let error of _userService.errors.password"><br/>
+      {{ error }}</span>
+  </div>
+  <div>
+    <button (click)="login()" class="btn btn-primary">Log In</button>
+  </div>
+  <div>
+    <span *ngFor="let error of _userService.errors.non_field_errors">{{ error }}<br/></span>
+  </div>
+</div>
+<div class="row" *ngIf="_userService._token">
+  {{getData(_userService._token)}}
+  <div>
+<!--    You are logged in as {{ _userService.username }}.<br/>-->
+<!--    Token Expires: {{ _userService.token_expires }}<br/>-->
+<!--    <button (click)="refreshToken()" class="btn btn-primary">Refresh Token</button>-->
+<!--    <button (click)="logout()" class="btn btn-primary">Log Out</button>-->
+      <table>
+        <tr>
+          <td>id</td>
+          <td>nombre</td>
+          <td>identificacion</td>
+          <td>button</td>
+        </tr>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "app": [{
+    "styles": [
+      "../node_modules/element-angular/theme/index.css"
+    ]
+  }],
+  "version": 0
+}
